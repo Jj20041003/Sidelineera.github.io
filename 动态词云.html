@@ -1,0 +1,68 @@
+
+<html>
+<head>
+    <title>大学生副业感受词云图</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .wordcloud-container {
+            width: 800px;
+            height: 500px;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+            perspective: 1500px;  /* 三维透视效果 */
+        }
+        .wordcloud {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-style: preserve-3d;
+            animation: rotate-cylinder 20s linear infinite;
+        }
+        .wordcloud span {
+            position: absolute;
+            font-size: 16px;
+            font-weight: bold;
+            white-space: nowrap;
+            transform-origin: center center;
+        }
+        @keyframes rotate-cylinder {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wordcloud-container" id="wordcloud-container">
+        <div class="wordcloud">
+            <span style="transform: rotateY(0.0deg) translateZ(300px) translateX(-34px) translateY(28px); font-size: 25.0px; color: rgb(238, 125, 30);">累</span><span style="transform: rotateY(12.0deg) translateZ(300px) translateX(-81px) translateY(40px); font-size: 24.0px; color: rgb(204, 148, 58);">充实</span><span style="transform: rotateY(24.0deg) translateZ(300px) translateX(-34px) translateY(11px); font-size: 23.5px; color: rgb(201, 131, 60);">人脉</span><span style="transform: rotateY(36.0deg) translateZ(300px) translateX(38px) translateY(43px); font-size: 26.0px; color: rgb(254, 128, 60);">收入</span><span style="transform: rotateY(48.0deg) translateZ(300px) translateX(11px) translateY(31px); font-size: 24.5px; color: rgb(251, 155, 80);">压力</span><span style="transform: rotateY(60.0deg) translateZ(300px) translateX(90px) translateY(-23px); font-size: 23.0px; color: rgb(206, 159, 56);">时间管理</span><span style="transform: rotateY(72.0deg) translateZ(300px) translateX(-19px) translateY(-32px); font-size: 23.5px; color: rgb(231, 138, 57);">成长</span><span style="transform: rotateY(84.0deg) translateZ(300px) translateX(-94px) translateY(4px); font-size: 22.0px; color: rgb(230, 142, 54);">技能提升</span><span style="transform: rotateY(96.0deg) translateZ(300px) translateX(45px) translateY(-5px); font-size: 21.5px; color: rgb(227, 150, 46);">兴趣</span><span style="transform: rotateY(108.0deg) translateZ(300px) translateX(61px) translateY(3px); font-size: 22.5px; color: rgb(231, 102, 79);">自信</span><span style="transform: rotateY(120.0deg) translateZ(300px) translateX(70px) translateY(49px); font-size: 21.0px; color: rgb(234, 129, 77);">自由</span><span style="transform: rotateY(132.0deg) translateZ(300px) translateX(27px) translateY(0px); font-size: 20.0px; color: rgb(244, 133, 40);">不安</span><span style="transform: rotateY(144.0deg) translateZ(300px) translateX(37px) translateY(33px); font-size: 19.5px; color: rgb(214, 147, 63);">持续学习</span><span style="transform: rotateY(156.0deg) translateZ(300px) translateX(-34px) translateY(30px); font-size: 23.0px; color: rgb(251, 135, 43);">挑战</span><span style="transform: rotateY(168.0deg) translateZ(300px) translateX(94px) translateY(49px); font-size: 22.5px; color: rgb(203, 153, 67);">经验积累</span><span style="transform: rotateY(180.0deg) translateZ(300px) translateX(13px) translateY(-47px); font-size: 21.5px; color: rgb(231, 135, 64);">工作平衡</span><span style="transform: rotateY(192.0deg) translateZ(300px) translateX(-65px) translateY(-32px); font-size: 21.0px; color: rgb(242, 133, 48);">创业精神</span><span style="transform: rotateY(204.0deg) translateZ(300px) translateX(-26px) translateY(39px); font-size: 22.5px; color: rgb(243, 130, 62);">满足感</span><span style="transform: rotateY(216.0deg) translateZ(300px) translateX(-19px) translateY(0px); font-size: 24.5px; color: rgb(201, 123, 50);">自我提升</span><span style="transform: rotateY(228.0deg) translateZ(300px) translateX(73px) translateY(14px); font-size: 24.0px; color: rgb(254, 108, 48);">成就感</span><span style="transform: rotateY(240.0deg) translateZ(300px) translateX(-1px) translateY(-26px); font-size: 23.0px; color: rgb(251, 138, 71);">责任</span><span style="transform: rotateY(252.0deg) translateZ(300px) translateX(6px) translateY(48px); font-size: 23.5px; color: rgb(201, 154, 46);">团队合作</span><span style="transform: rotateY(264.0deg) translateZ(300px) translateX(-3px) translateY(-7px); font-size: 22.0px; color: rgb(222, 103, 46);">领导力</span><span style="transform: rotateY(276.0deg) translateZ(300px) translateX(49px) translateY(-13px); font-size: 21.5px; color: rgb(255, 140, 30);">持久动力</span><span style="transform: rotateY(288.0deg) translateZ(300px) translateX(29px) translateY(-8px); font-size: 24.0px; color: rgb(211, 149, 71);">独立</span><span style="transform: rotateY(300.0deg) translateZ(300px) translateX(-55px) translateY(-8px); font-size: 22.0px; color: rgb(208, 132, 33);">学习机会</span><span style="transform: rotateY(312.0deg) translateZ(300px) translateX(-37px) translateY(40px); font-size: 21.0px; color: rgb(217, 139, 31);">灵活性</span><span style="transform: rotateY(324.0deg) translateZ(300px) translateX(56px) translateY(-1px); font-size: 25.0px; color: rgb(240, 115, 73);">时间压力</span><span style="transform: rotateY(336.0deg) translateZ(300px) translateX(91px) translateY(-5px); font-size: 20.0px; color: rgb(254, 159, 68);">投资</span><span style="transform: rotateY(348.0deg) translateZ(300px) translateX(92px) translateY(14px); font-size: 23.0px; color: rgb(207, 107, 46);">自我管理</span>
+        </div>
+    </div>
+
+    <script>
+        // 获取元素
+        const wordcloud = document.querySelector(".wordcloud");
+        const container = document.getElementById("wordcloud-container");
+
+        // 停止动画
+        container.addEventListener("mouseenter", function() {
+            wordcloud.style.animationPlayState = "paused";
+        });
+
+        // 恢复动画
+        container.addEventListener("mouseleave", function() {
+            wordcloud.style.animationPlayState = "running";
+        });
+    </script>
+</body>
+</html>

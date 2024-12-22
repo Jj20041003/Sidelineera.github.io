@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>副业介绍</title>
+  <style>
+    /* 全局样式重置 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Jiangxi Zhuokai', Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* 导入江西拙楷字体 */
+    @font-face {
+      font-family: 'Jiangxi Zhuokai';
+      src: url('江西拙楷2.0.ttf') format('truetype'),
+           url('江西拙楷.woff') format('woff'),
+           url('江西拙楷.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    .page1 {
+      position: relative;
+      height: 100vh;
+      background-color: #000;
+      overflow: hidden;
+    }
+
+    .cover-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('封面.png'); /* 替换为你的封面图路径 */
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    .page2,
+    .page3 {
+      position: relative;
+      height: 100vh;
+      background-color: #f5f2e8;
+      display: flex;
+      justify-content: center; /* 居中 */
+      align-items: center; /* 垂直居中 */
+      opacity: 0;
+      transform: translateY(100%);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .page2 .content,
+    .page3 .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px; /* 减少文字和图片的间距 */
+      width: 80%; /* 限制整体宽度 */
+    }
+
+    .page2 .text-content,
+    .page3 .text-content {
+      width: 45%; /* 文字部分宽度 */
+      font-size: 20px;
+      line-height: 1.6;
+      text-align: left;
+      max-width: 700px; /* 限制文本宽度，避免行过长 */
+    }
+
+    .page2 .image-content,
+    .page3 .image-content {
+      width: 45%; /* 图片部分宽度 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .page2 .image-content img,
+    .page3 .image-content img {
+      max-width: 80%; /* 图片宽度 */
+      height: auto;
+      border-radius: 8px; /* 圆角效果 */
+    }
+
+    /* 段落样式 */
+    .page2 .text-content p,
+    .page3 .text-content p {
+      margin-bottom: 20px; /* 段与段之间的空隙 */
+      font-family: 'Jiangxi Zhuokai', Arial, sans-serif;
+    }
+
+    /* 深黄色文字样式 */
+    .yellow-text {
+      color: #f3a322;
+      font-family: 'Jiangxi Zhuokai', Arial, sans-serif;
+    }
+
+    .page4 {
+      position: relative;
+      height: 100vh;
+      background-color: #000;
+      overflow: hidden;
+    }
+
+    .cover-image2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('图片3.png'); /* 替换为你的封面图路径 */
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    .page5 {
+  position: relative;
+  background-color: #f5f2e8;  /* 背景颜色可根据需要修改 */
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 1s ease, transform 1s ease;
+  display: flex;
+  flex-direction: column;  /* 使用column排列，使文字在顶部 */
+  justify-content: flex-start;  /* 将内容对齐到顶部 */
+  align-items: center;
+  text-align: left;  /* 保证文字左对齐 */
+  padding-top: 50px;  /* 增加顶部的空隙，可以调整这个值 */
+  min-height: auto;  /* 允许高度自动增加 */
+  max-height: 650vh
+}
+
+.page5 .text-content {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 20px; /* 设置段落之间的间距 */
+  width: 600px;  /* 限制文字部分的宽度 */
+  max-width: 700px;  /* 限制最大宽度，避免行过长 */
+}
+
+.page6 {
+  position: relative;
+  height: 100vh; /* 确保页面高度为视口高度 */
+  background-color: #000; /* 背景色设置为黑色 */
+  overflow: hidden; /* 防止内容溢出 */
+}
+
+.cover-image3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* 确保背景图覆盖整个容器 */
+  background-image: url('图片4.png'); /* 替换为你的封面图路径 */
+  background-position: center;
+  background-size: cover; /* 确保背景图保持比例并覆盖整个区域 */
+  background-attachment: fixed; /* 固定背景图 */
+}
+
+.page6 {
+  position: relative;
+  background-color: #f5f2e8;  /* 背景颜色可根据需要修改 */
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 1s ease, transform 1s ease;
+  display: flex;
+  flex-direction: column;  /* 使用column排列，使文字在顶部 */
+  justify-content: flex-start;  /* 将内容对齐到顶部 */
+  align-items: center;
+  text-align: left;  /* 保证文字左对齐 */
+  padding-top: 50px;  /* 增加顶部的空隙，可以调整这个值 */
+  min-height: auto;  /* 允许高度自动增加 */
+  max-height: 600vh
+}
+
+.page6.text-content {
+  background-color: #f5f2e8;
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 20px; /* 设置段落之间的间距 */
+  width: 600px;  /* 限制文字部分的宽度 */
+  max-width: 700px;  /* 限制最大宽度，避免行过长 */
+}
+
+#page7 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    min-height: 100vh;
+    background-color: #f5f2e8
+  }
+
+  .left-column, .right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;  /* 增加人物之间的间距 */
+  }
+
+  .center-column {
+    flex-grow: 1;
+    text-align: center;
+    position: relative;
+  }
+
+  .person {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .person-text {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateX(10px) translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    white-space: normal; /* 允许文字自动换行 */
+    width: 100px; /* 根据字体大小和间距，设置合适的宽度，确保两个字和一个逗号能完整显示在一行 */
+    word-break: break-all; /* 强制换行 */
+    z-index: 10;
+}
+  .person:hover .person-text {
+    display: block;
+  }
+
+  .person-image {
+    width: 150px;  /* 增加人物图像的大小 */
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .person:hover .person-image {
+    transform: scale(1.1);
+  }
+
+  .main-image {
+    width: 100%;
+    max-width: 600px;  /* 可以根据需要调整最大宽度 */
+    height: auto;
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
+  }
+
+  /* 让图片和文字有点距离 */
+  #page7 .left-column, #page7 .right-column {
+    width: 25%;  /* 人物图片宽度缩小，留出空间给初始图片 */
+  }
+
+  #page7 .center-column {
+    flex-grow: 1;
+  }
+
+  .page8 {
+      position: relative;
+      height: 100vh;
+      background-color: #000;
+      overflow: hidden;
+      z-index:1000
+    }
+
+  .cover-image4 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('图片6.png'); /* 替换为你的封面图路径 */
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+  .page9 {
+  position: relative;
+  background-color: #f5f2e8;  /* 背景颜色 */
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 1s ease, transform 1s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+  padding-top: 50px;
+  min-height: 100vh;
+  max-height: 180vh;
+  z-index: 1001; /* 确保在页面顶部 */
+}
+
+.page9 .text-content {
+  font-size: 20px !important;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  width: 600px;
+  max-width: 700px;
+  font-family: 'Jiangxi Zhuokai', Arial, sans-serif;
+}
+
+.page10 {
+      position: relative;
+      height: 100vh;
+      background-color: #000;
+      overflow: hidden;
+      z-index:1004
+    }
+
+  .cover-image5{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('结尾.png'); /* 替换为你的封面图路径 */
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+</style>
+
+</head>
+
+<body>
+  <section class="page1">
+    <div class="cover-image"></div>
+  </section>
+
+  <section class="page2">
+    <div class="content">
+      <!-- 文字部分 -->
+      <div class="text-content">
+        <p>副业，作为一种非主要职业的经济活动，指的是个人在完成主要工作之余，利用业余时间从事的第二职业。</p>
+
+        <p class="yellow-text">随着社会文化和数字经济的发展，副业兼职的内涵不断演变，从过去被认为是“不稳定”和“不务正业”的边缘活动，转变为年轻人“体验生活”和“掌控自己”的一种方式。</p>
+
+        <p>在中国，这种没有劳动合同关系、没有固定工作时间的工作方式被称作“灵活就业”，俗称打零工、做兼职。</p>
+
+        <p class="yellow-text">大学生们的副业呈现多元化的特征：家教、陪拍约拍摄影师、毛娘、cos委托、画师、自媒体、服务员······各行各业各种劳动类型，大学生们副业做得遍地生花。</p>
+      </div>
+
+      <!-- 图片部分 -->
+      <div class="image-content">
+        <img src="图片1.png" alt="副业相关图片"> <!-- 替换为你的图片路径 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 新增的 page3 -->
+  <section class="page3">
+    <div class="content">
+      <!-- 文字部分 -->
+      <div class="text-content">
+        <p>2023年3月，后浪研究所发布《2023年副业报告》显示，<span class="yellow-text">44.7%</span>的年轻人有过副业经验，<span class="yellow-text">53.74%</span>的年轻人虽未做过但有意向。</p>
+
+        <p>奔向副业的年轻人里，大学生为主力军。2021年，艾媒咨询报告显示，一线城市<span class="yellow-text">83.9%</span>大学生有课外兼职；二线城市<span class="yellow-text">81.8%</span>大学生有课外兼职；三线城市有课外兼职的比例更高，达<span class="yellow-text">86.1%</span>；四线及以下城市的课外兼职大学生占比为<span class="yellow-text">80.0%</span>。2023年澎湃新闻调查显示，有超过一半（<span class="yellow-text">54.29%</span>）的大学生做过兼职。2024年，一项针对河北省大学生的调研显示，曾参加过兼职的人数占比<span class="yellow-text">64.64%</span>；。</p>
+
+        <p class="yellow-text">在各类调研成果中，大学生群体的副业比例均在50%以上，半数学生都在学业之外探索副业。</p>
+    </div>
+
+    <div class="chart-container">
+      <iframe src="副业比例柱状图.html" style="width:500px; height:400px; border: none; margin-left:100px;" frameborder="0"></iframe>
+    </div>
+
+  </section>
+
+  <section class="page4">
+    <div class="cover-image2"></div>
+  </section>
+
+  <section class="page5">
+
+    <div class="text-content">
+      <p>对受访者的专业类别与所从事副业所处行业进行交叉分析后，我们看到了一个分支错落的桑基图。<span class="yellow-text">大学生们的副业呈现极其丰富多元的趋势，且和专业相关性并不强。</span></p>
+        <br>
+      <p>具体而言，文学类专业的学生在副业选择上表现出广泛的涉猎，包括自媒体博主、陪伴类服务、家教以及亚文化圈层等多个领域。</p>
+       <br>
+      <p class="yellow-text">从表现上来看，大学生们在校期间的职业探索不囿于主专业领域，呈现职业选择的灵活性和对多元技能的追求。</p>
+    </div>
+  
+    <!-- 你可以在这里插入HTML可视化图表 -->
+    <div class="chart-container">
+      <iframe src="专业x类别桑基图.html" style="width: 1000px;; height:500px; border: none;" frameborder="0"></iframe>
+    </div>
+
+    <div class="text-content">
+      <p>对于大多数学生来说，步入社会、进入职场是求学过程中最重要的目标和终极归宿。而这一转变不仅仅是身份的变动，更是生活方式的全方位颠覆。</p>
+        <br>
+      <p>从校园到职场的过渡是复杂的，大学生们往往需要一个或长或短的时期，体验何为工作、学习如何工作。</p>
+       <br>
+      <p>这一个时期在高等教育培养体系中会被默认为“实习”，但现实是，实习的到岗时间要求和较强的筛选性大大提升门槛，实习过程中的认知失调使学生对专业领域内工作产生抵触心理。</p>
+       <br>
+       <p class="yellow-text">在此基础上，兼职副业成为完成职场过渡的可选项。</p>
+    </div>
+
+    <div class="chart-container">
+      <iframe src="选择原因.html" style="width: 1000px;; height:500px; border: none;" frameborder="0"></iframe>
+    </div>
+
+    <div class="chart-container">
+      <iframe src="帮助.html" style="width: 1000px;; height:500px; border: none;" frameborder="0"></iframe>
+    </div>
+
+    <div class="text-content">
+      <p>副业对大学生来说并不是一项赖以生存的“业”，而更像是一程经验的累计和眼界的拓宽。</p>
+        <br>
+      <p>提到从事副业的原因和选择副业标准，大学生们提到【提升能力】【接触社会】【丰富人生】【自我独立】。</span></p>
+       <br>
+      <p>副业也确实给大学生们想象中的收获，比如【职业经验】【职业技能】【职业人脉】【职业兴趣】。</span></p>
+       <br>
+       <p class="yellow-text">大学仍是象牙塔，副业是大学生们梦寐以求的社会课。</p>
+    </div>
+
+    <div class="text-content">
+      <br>
+      <p class="yellow-text">压力在已有，困难在未知。大学生们不断地调整自己的时间和状态，在主业和副业中求两全。</p>
+        <br>
+      <p>调查显示，学生们认为从事副业的压力多来源于副业本身：副业的市场竞争、时间管理、投入产出比、职业成长···而潜在困难多聚焦于被学业挤占的主业：学习、时间、情绪、人际···</span></p>
+    </div>
+
+    <div class="chart-container">
+      <iframe src="困难.html" style="width: 1000px;; height:500px; border: none;" frameborder="0"></iframe>
+    </div>
+
+    <div class="text-content">
+      <br>
+      <p>一面应对副业发展的压力，一面承托副业带来的主业压力。大学生们呼喊：到底怎样的结果才配得上一路的颠沛流离？</p>
+    </div>
+
+    <div class="text-content">
+      <br>
+      <p>除了成长与职业收获之外，收入怎样？</p>
+      <br>
+      <p>调查显示，<span class="yellow-text">60.1%</span>的大学生依靠副业每月收入在<span class="yellow-text">1500-3000</span>区间内，已基本覆盖在校一月生活开销，调查样本副业月收入平均值为<span class="yellow-text">1768.8</span>。</p>
+      <br>
+    </div>
+
+    <div class="chart-container">
+      <iframe src="收入.html" style="width: 1000px;; height:500px; border: none;" frameborder="0"></iframe>
+    </div>
+
+  </section>
+
+  <section class="page6">
+    <div class="cover-image3"></div>
+  </section>
+
+  <!-- 修改后的人物排列与悬停效果 -->
+  <div id="page7" class="page7">
+    <div class="left-column">
+      <div class="person" data-image="言言.png" data-text="" onclick="changeImage(this)">
+        <img src="人物1.png" alt="Person 1" class="person-image" />
+        <span class="person-text">言言，剧本杀dm</span>
+      </div>
+      <div class="person" data-image="晚夕.png" data-text="" onclick="changeImage(this)">
+        <img src="人物2.png" alt="Person 2" class="person-image" />
+        <span class="person-text">晚夕，陪拍摄影师</span>
+      </div>
+      <div class="person" data-image="贾斯伯.png" data-text="" onclick="changeImage(this)">
+        <img src="人物3.png" alt="Person 3" class="person-image" />
+        <span class="person-text">jasper，主播</span>
+      </div>
+    </div>
+
+    <div class="center-column">
+      <img id="main-image" src="首图.png" alt="Initial Image" class="main-image" />
+      <span id="person-text"> </span>
+    </div>
+
+    <div class="right-column">
+      <div class="person" data-image="骨头.png" data-text="" onclick="changeImage(this)">
+        <img src="人物4.png" alt="Person 4" class="person-image" />
+        <span class="person-text">骨头，穿孔师</span>
+      </div>
+      <div class="person" data-image="可晴.png" data-text="" onclick="changeImage(this)">
+        <img src="人物5.png" alt="Person 5" class="person-image" />
+        <span class="person-text">可晴，婚礼摄影师</span>
+      </div>
+      <div class="person" data-image="米粥.png" data-text="" onclick="changeImage(this)">
+        <img src="人物6.png" alt="Person 6" class="person-image" />
+        <span class="person-text">米粥，西班牙地陪</span>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="page8">
+    <div class="cover-image4"></div>
+  </section>
+
+  <section class="page9">
+    <div class="text-content">
+      <p class="yellow-text">广泛探索、多元收获、勤恳平衡——大学生的副业现状大可用这十二个字概括。。</p>
+        <br>
+      <p>风险中前行、探索中收获。</p>
+    </div>
+
+    <div class="text-content">
+      <p>结合过往数据，应用人口增长模型对大学生副业从事人数变化趋势进行预测后，我们看到了一条“扶摇直上”的增长曲线。</p>
+        <br>
+      <p>副业的风潮还会继续盛行下去，大学生们都在这“试错成本低”的阶段里以副业形式与职场过过招。</p>
+    </div>
+    
+    <div class="chart-container">
+      <iframe src="未来预测.html" style="width: 1000px;; height:500px; border: none;" frameborder="0"></iframe>
+    </div>
+
+    <div class="text-content">
+      <br>
+      <br>
+      <p style="text-align: center;">在探索中长见识，在忙碌中找平衡</p>
+      <p style="text-align: center;">有人告诉我们，她“还是想试试”</p>
+      <p style="text-align: center;">不管再来几次</p>
+      <p style="text-align: center;">大学生们的探索欲都会驱使他们一次次尝试</p>
+      <p style="text-align: center;">副业，是大学生们的一次次社会课</p>
+      <p class="yellow-text" style="text-align: center;">副业时代，大学生给自己发offer</p>
+    </div>
+
+  </section>
+
+    <section class="page10">
+      <div class="cover-image5"></div>
+    </section>
+
+
+
+  <script>
+    window.addEventListener('scroll', function () {
+    const page2 = document.querySelector('.page2');
+    const page3 = document.querySelector('.page3');
+    const page5 = document.querySelector('.page5');
+    const page6 = document.querySelector('.page6');
+    const page7 = document.querySelector('#page7');
+    const page8 = document.querySelector('.page8');
+    const page9 = document.querySelector('.page9');
+    const page10 = document.querySelector('.page10');
+    const scrollPosition = window.scrollY + window.innerHeight;
+
+    // page2 视差滚动效果
+    const page2Offset = page2.offsetTop;
+    if (scrollPosition > page2Offset) {
+        const page2OffsetFromTop = scrollPosition - page2Offset;
+        page2.style.opacity = Math.min(1, page2OffsetFromTop / 500);
+        page2.style.transform = `translateY(${Math.min(0, page2OffsetFromTop / 3)}px)`;
+    }
+
+    // page3 视差滚动效果
+    const page3Offset = page3.offsetTop;
+    if (scrollPosition > page3Offset) {
+        const page3OffsetFromTop = scrollPosition - page3Offset;
+        page3.style.opacity = Math.min(1, page3OffsetFromTop / 500);
+        page3.style.transform = `translateY(${Math.min(0, page3OffsetFromTop / 3)}px)`;
+    }
+
+    // page5 视差滚动效果
+    const page5Offset = page5.offsetTop;
+    if (scrollPosition > page5Offset) {
+        const page5OffsetFromTop = scrollPosition - page5Offset;
+        page5.style.opacity = Math.min(1, page5OffsetFromTop / 500);
+        page5.style.transform = `translateY(${Math.min(0, page5OffsetFromTop / 3)}px)`;
+    }
+
+    // page6 视差滚动效果
+    const page6Offset = page6.offsetTop;
+    if (scrollPosition > page6Offset) {
+        const page6OffsetFromTop = scrollPosition - page6Offset;
+        page6.style.opacity = Math.min(1, page6OffsetFromTop / 500);
+        page6.style.transform = `translateY(${Math.min(0, page6OffsetFromTop / 3)}px)`;
+    }
+
+    // page7 视差滚动效果
+    const page7Offset = page7.offsetTop;
+    if (scrollPosition > page7Offset) {
+        const page7OffsetFromTop = scrollPosition - page7Offset;
+        page7.style.opacity = Math.min(1, page7OffsetFromTop / 500);
+        page7.style.transform = `translateY(${Math.min(0, page7OffsetFromTop / 3)}px)`;
+    }
+
+    // page8 视差滚动效果
+    const page8Offset = page8.offsetTop;
+    if (scrollPosition > page8Offset) {
+        const page8OffsetFromTop = scrollPosition - page8Offset;
+        page8.style.opacity = Math.min(1, page8OffsetFromTop / 500);
+        page8.style.transform = `translateY(${Math.min(0, page8OffsetFromTop / 3)}px)`;
+    }
+
+    // page9 视差滚动效果
+    const page9Offset = page9.offsetTop;
+    if (scrollPosition > page9Offset) {
+        const page9OffsetFromTop = scrollPosition - page9Offset;
+        page9.style.opacity = Math.min(1, page9OffsetFromTop / 500);
+        page9.style.transform = `translateY(${Math.min(0, page9OffsetFromTop / 3)}px)`;
+    }
+
+    // page10 视差滚动效果
+    const page10Offset = page9.offsetTop;
+if (scrollPosition > page10Offset) {
+    const page10OffsetFromTop = scrollPosition - page10Offset;
+    page10.style.opacity = Math.min(1, page9OffsetFromTop / 500);
+    page10.style.transform = `translateY(${Math.min(0, page9OffsetFromTop / 3)}px)`;
+}
+    window.onload = function () {
+        // 获取要切换的中间图片元素和显示文字的元素，放在页面加载完成后执行，避免获取不到元素的问题
+        const mainImage = document.getElementById('main-image');
+        const personText = document.getElementById('person-text');
+
+        // 获取所有人物元素
+        const persons = document.querySelectorAll('.person');
+
+        // 循环为每个人物元素添加点击事件监听器
+        persons.forEach(person => {
+            person.addEventListener('click', function () {
+                const newImage = this.getAttribute('data-image');
+                const newText = this.getAttribute('data-text');
+
+                mainImage.src = newImage;
+                personText.textContent = newText;
+            });
+        });
+    };
+});
+</script>
+
+</body>
+
+</html>
